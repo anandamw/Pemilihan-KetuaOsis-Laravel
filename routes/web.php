@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\VotersController;
+use App\Http\Controllers\VotesController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
@@ -21,4 +26,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('dashboard/admin', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+
+Route::get('/candidate', [CandidateController::class, 'index']);
+Route::get('/candidate/create', [CandidateController::class, 'create']);
+Route::get('/election', [ElectionController::class, 'index']);
+Route::get('/voters', [VotersController::class, 'index']);
+Route::get('/votes', [VotesController::class, 'index']);

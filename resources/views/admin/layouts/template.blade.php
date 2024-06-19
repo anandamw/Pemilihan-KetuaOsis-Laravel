@@ -42,7 +42,7 @@
     <!--*******************
         Preloader start
     ********************-->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="waviy">
             <span style="--i:1">L</span>
             <span style="--i:2">o</span>
@@ -55,12 +55,14 @@
             <span style="--i:9">.</span>
             <span style="--i:10">.</span>
         </div>
-    </div>
+    </div> --}}
     <!--*******************
         Preloader end
     ********************-->
 
 
+
+    @include('admin.layouts.header')
 
 
 
@@ -121,6 +123,48 @@
     <script src="{{ asset('') }}assets/js/dlabnav-init.js"></script>
     <script src="{{ asset('') }}assets/js/demo.js"></script>
     <script src="{{ asset('') }}assets/js/styleSwitcher.js"></script>
+    <script src="{{ asset('') }}assets/vendor/global/global.min.js"></script>
+
+    <script src="{{ asset('') }}assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+
+    <script src="{{ asset('') }}assets/js/custom.min.js"></script>
+    <script src="{{ asset('') }}assets/js/dlabnav-init.js"></script>
+    <script src="{{ asset('') }}assets/js/demo.js"></script>
+    <script src="{{ asset('') }}assets/js/styleSwitcher.js"></script>
+    <script src="{{ asset('') }}assets/vendor/global/global.min.js"></script>
+    <script src="{{ asset('') }}assets/vendor/chart-js/chart.bundle.min.js"></script>
+    <!-- Apex Chart -->
+    <script src="{{ asset('') }}assets/vendor/apexchart/apexchart.js"></script>
+
+    <!-- Datatable -->
+    <script src="{{ asset('') }}assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('') }}assets/js/plugins-init/datatables.init.js"></script>
+
+    <script src="{{ asset('') }}assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+
+    <script src="{{ asset('') }}assets/js/custom.min.js"></script>
+    <script src="{{ asset('') }}assets/js/dlabnav-init.js"></script>
+    <script src="{{ asset('') }}assets/js/demo.js"></script>
+    <script src="{{ asset('') }}assets/js/styleSwitcher.js"></script>
+    <script>
+        (function() {
+            'use strict'
+
+            var forms = document.querySelectorAll('.needs-validation')
+
+            Array.prototype.slice.call(forms)
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 
 </body>
 
