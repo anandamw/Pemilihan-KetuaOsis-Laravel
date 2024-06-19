@@ -26,8 +26,10 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('') }}assets/images/favicon.png">
 
     <!-- Page Title Here -->
-    <title>Dompet - Payment Admin Dashboard Bootstrap Template</title>
-
+    <title>Dashboard</title>
+    <!-- Datatable -->
+    <link href="{{ asset('') }}assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
 
 
     <link href="{{ asset('') }}assets/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
@@ -70,69 +72,21 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <!--**********************************
-                Footer start
-            ***********************************-->
-    <div class="footer">
-
-        <div class="copyright">
-            <p>Copyright © Designed &amp; Developed by <a href="https://dexignlab.com/" target="_blank">DexignLab</a>
-                2023</p>
-        </div>
     </div>
-    <!--**********************************
-        Footer end
-       ***********************************-->
 
-
-
-
-    </div>
-    <!--**********************************
-       Main wrapper end
-      ***********************************-->
-
-    <!--**********************************
-       Scripts
-      ***********************************-->
     <!-- Required vendors -->
-    <script src="{{ asset('') }}assets/vendor/global/global.min.js"></script>
     <script src="{{ asset('') }}assets/vendor/chart-js/chart.bundle.min.js"></script>
-    <script src="{{ asset('') }}assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 
     <!-- Apex Chart -->
-    <script src="{{ asset('') }}assets/vendor/apexchart/apexchart.js"></script>
     <script src="{{ asset('') }}assets/vendor/nouislider/nouislider.min.js"></script>
     <script src="{{ asset('') }}assets/vendor/wnumb/wNumb.js"></script>
 
     <!-- Dashboard 1 -->
     <script src="{{ asset('') }}assets/js/dashboard/dashboard-1.js"></script>
 
-    <script src="{{ asset('') }}assets/js/custom.min.js"></script>
-    <script src="{{ asset('') }}assets/js/dlabnav-init.js"></script>
-    <script src="{{ asset('') }}assets/js/demo.js"></script>
-    <script src="{{ asset('') }}assets/js/styleSwitcher.js"></script>
     <script src="{{ asset('') }}assets/vendor/global/global.min.js"></script>
 
-    <script src="{{ asset('') }}assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 
-    <script src="{{ asset('') }}assets/js/custom.min.js"></script>
-    <script src="{{ asset('') }}assets/js/dlabnav-init.js"></script>
-    <script src="{{ asset('') }}assets/js/demo.js"></script>
-    <script src="{{ asset('') }}assets/js/styleSwitcher.js"></script>
-    <script src="{{ asset('') }}assets/vendor/global/global.min.js"></script>
-    <script src="{{ asset('') }}assets/vendor/chart-js/chart.bundle.min.js"></script>
     <!-- Apex Chart -->
     <script src="{{ asset('') }}assets/vendor/apexchart/apexchart.js"></script>
 

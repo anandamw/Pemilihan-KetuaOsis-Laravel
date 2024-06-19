@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\CandidateController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ElectionController;
-use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\VotersController;
-use App\Http\Controllers\VotesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KandidatController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemilihanController;
+use App\Http\Controllers\SessionController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 
@@ -21,16 +19,24 @@ use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [SessionController::class, 'login'])->name('login');
+    Route::post('/login', [SessionController::class, 'login_action']);
+
+    Route::get('/register', [SessionController::class, 'index']);
+    Route::post('/register/create', [SessionController::class, 'register']);
 });
+Route::middleware(['auth'])->group(function () {
 
-
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-
-Route::get('/candidate', [CandidateController::class, 'index']);
-Route::get('/candidate/create', [CandidateController::class, 'create']);
-Route::get('/election', [ElectionController::class, 'index']);
-Route::get('/voters', [VotersController::class, 'index']);
-Route::get('/votes', [VotesController::class, 'index']);
+    Route::get('/home', function () {
+        return redirect('/dashboard');
+    });
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/kandidat', [KandidatController::class, 'index']);
+    Route::get('/kandidat/tambah', [KandidatController::class, 'tambah']);
+    Route::get('/pemilihan', [PemilihanController::class, 'index']);
+});

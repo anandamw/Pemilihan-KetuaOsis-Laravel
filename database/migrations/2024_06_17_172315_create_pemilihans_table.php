@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('voters', function (Blueprint $table) {
+        Schema::create('pemilihans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('class');
-            $table->boolean('has_voted')->default(false);
+            $table->foreignId('users_id')->constrained();
+            $table->foreignId('kandidats_id')->constrained();
+            $table->date('tanggal');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('voters');
+        Schema::dropIfExists('pemilihans');
     }
 };

@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Candidates extends Model
+class Kandidat extends Model
 {
     use HasFactory;
+
+    protected $table = 'kandidats';
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 }

@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
+        Schema::create('kandidats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('voter_id')->constrained('voters')->onDelete('cascade');
-            $table->foreignId('candidate_id')->constrained('candidates')->onDelete('cascade');
-            $table->timestamp('timestamp')->useCurrent();
+            $table->text('nis')->nullable();
+            $table->string('nama_kandidat');
+            $table->string('kelas');
+            $table->string('visi');
+            $table->string('misi');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('votes');
+        Schema::dropIfExists('kandidats');
     }
 };
