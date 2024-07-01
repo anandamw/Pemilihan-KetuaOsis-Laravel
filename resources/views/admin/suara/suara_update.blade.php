@@ -17,87 +17,76 @@
                         </div>
                         <div class="card-body">
                             <div class="form-validation">
-                                <form class="needs-validation" action="/pemilihan/create" method="POST" novalidate>
+                                <form class="needs-validation" action="" enctype="multipart/form-data" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Nis
+                                                <label class="col-lg-4 col-form-label" for="visi">Visi
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" name="nis"
-                                                        value="{{ Auth::user()->nis }}" id="validationCustom01"
-                                                        placeholder="Enter a Nis.." readonly>
+                                                    <textarea class="form-control" name="visi" id="visi" rows="5" placeholder="........." required></textarea>
                                                     <div class="invalid-feedback">
-                                                        Please enter a Nis.
+                                                        Please enter a Vision statement.
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">name
+                                                <label class="col-lg-4 col-form-label" for="misi">Misi
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" name="name"
-                                                        value="{{ Auth::user()->name_user }}" class="form-control"
-                                                        id="validationCustom01" placeholder="Enter a name.." readonly>
+                                                    <textarea class="form-control" name="misi" id="misi" rows="5" placeholder="........." required></textarea>
                                                     <div class="invalid-feedback">
-                                                        Please enter a name.
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Jurusan
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="validationCustom01"
-                                                        name="jurusan" value="{{ Auth::user()->jurusan }}" readonly
-                                                        placeholder="Enter a Jurusan.." required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter a Jurusan.
+                                                        Please enter a Mission statement.
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-xl-6">
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label" for="validationCustom05">Pilih
-                                                    Kandidat :
+                                                    Kandidat:
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select name="kandidats_id" class="default-select wide form-control"
-                                                        id="validationCustom05">
+                                                    <select name="users_id" class="default-select wide form-control"
+                                                        id="validationCustom05" required>
                                                         <option data-display="Select">Please select</option>
-
-                                                        @foreach ($dataKandidats as $item)
-                                                            <option value="{{ $item->id }}">
+                                                        @foreach ($users as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ $item->id == $kandidat->users_id ? 'selected' : '' }}>
                                                                 {{ $item->name_user }}
                                                             </option>
                                                         @endforeach
-
                                                     </select>
                                                     <div class="invalid-feedback">
-                                                        Please select a one.
+                                                        Please select one.
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">No Whatsapp
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                    Gambar
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" name="no_whatsapp"
-                                                        id="validationCustom01" placeholder="Enter a No Whatsapp.."
-                                                        required>
+                                                    <img src="{{ asset('pendaftar/' . $kandidat->gambar) }}" width="60"
+                                                        style="border-radius: 5px; margin-bottom: 10px;" alt="">
+                                                    <input type="file" class="form-control" name="gambar"
+                                                        id="validationCustom01">
                                                     <div class="invalid-feedback">
-                                                        Please enter a No Whatsapp.
+                                                        Hanya mendukung format gambar: jpg, png, svg
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
 
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">

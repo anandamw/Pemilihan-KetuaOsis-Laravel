@@ -26,7 +26,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('') }}assets/images/favicon.png">
 
     <!-- Page Title Here -->
-    <title>Dompet - Payment Admin Dashboard Bootstrap Template</title>
+    <title>OSIS SMANSA</title>
 
 
 
@@ -44,25 +44,40 @@
                             <h3 class="title">Sign up your account</h3>
                             <p>Sign in to your account to start using Dompact</p>
                         </div>
-                        <form action="https://dompet.dexignlab.com/xhtml/index.html">
+                        <form action="/register/create" method="POST">
+                            @csrf
+
                             <div class="mb-4">
-                                <label class="mb-1 text-dark">Username</label>
-                                <input type="text" class="form-control form-control" value="username">
+                                <label class="mb-1 text-dark">Nama</label>
+                                <input type="text" name="nama" class="form-control form-control">
                             </div>
+
                             <div class="mb-4">
                                 <label class="mb-1 text-dark">Email</label>
-                                <input type="email" class="form-control form-control" value="hello@example.com">
+                                <input type="email" name="email" class="form-control form-control">
                             </div>
+
                             <div class="mb-4 position-relative">
                                 <label class="mb-1 text-dark">Password</label>
                                 <input type="password"id="dlab-password" class="form-control form-control"
-                                    value="Password">
+                                    name="password">
                                 <span class="show-pass eye">
 
                                     <i class="fa fa-eye-slash"></i>
                                     <i class="fa fa-eye"></i>
 
                                 </span>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="mb-1 text-dark">Kelas</label>
+                                <select name="kelas_id" id="" class="form-control form-control">
+                                    <option selected>No Selected :</option>
+                                    @foreach ($data as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_kelas }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                             <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                 <div class="mb-4">
@@ -103,11 +118,9 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="pages-left h-100">
                         <div class="login-content">
-                            <a href="index.html"><img src="{{ asset('') }}assets/images/logo-full.png"
-                                    class="mb-3" alt=""></a>
+                            <a href="index.html"><img src="{{ asset('') }}assets/images/profile/pic1.jpg"
+                                    class="" alt=""></a>
 
-                            <p>Your true value is determined by how much more you give in value than you take in
-                                payment. ...</p>
                         </div>
                         <div class="login-media text-center">
                             <img src="{{ asset('') }}assets/images/login.png" alt="">

@@ -13,23 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kandidats', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kandidat');
-            $table->string('calon_kandidat');
-            $table->string('foto_kandidat');
+            $table->string('nama');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->foreignId('kelas_id')->constrained();
+            $table->enum('role', ['siswa', 'admin']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      *
      * @return void
      */
+
+
     public function down()
     {
-        Schema::dropIfExists('kandidats');
+        Schema::dropIfExists('users');
     }
 };

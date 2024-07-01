@@ -17,29 +17,31 @@ class DummyUsersSeeder extends Seeder
     {
         $createDummy = [
             [
-                'name' => 'John Doe',
-                'username' => 'John Doe',
-                'kelas' => '10A',
-                "role" => 'kandidat',
-                'nis' => '123456',
+                'nama' => 'ananda',
+                'kelas_id' => '1',
+
+                'email' => 'ananda@gmail.com',
                 'password' => bcrypt('123'),
+                "role" => 'admin',
             ],
             [
-                'name' => 'Jane Smith',
-                'username' => 'Jane Smith',
-                'kelas' => '11B',
+                'nama' => 'admin',
+                'kelas_id' => '1',
+
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin'),
                 "role" => 'admin',
-                'nis' => '789012',
-                'password' => bcrypt('123'),
             ],
             [
-                'name' => 'Alice Johnson',
-                'username' => 'Alice Johnson',
-                'kelas' => '12C',
-                "role" => 'admin',
-                'nis' => '345678',
+                'kelas_id' => '2',
+
+                'nama' => 'maulana',
+                'email' => 'maulana@gmail.com',
                 'password' => bcrypt('123'),
+                "role" => 'siswa',
+                // "gambar" => 'maulana.jpg',
             ],
+
         ];
         foreach ($createDummy as $data) {
             User::create($data);

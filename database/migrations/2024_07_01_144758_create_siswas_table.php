@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kandidats', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kandidat');
-            $table->string('calon_kandidat');
-            $table->string('foto_kandidat');
+            $table->string("nama");
+            $table->foreignId("kelas_id")->constrained();
+            $table->foreignId("users_id")->constrained();
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kandidats');
+        Schema::dropIfExists('siswa');
     }
 };

@@ -21,6 +21,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-xl-6">
+
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label" for="validationCustom01">Nis
                                                     <span class="text-danger">*</span>
@@ -73,8 +74,9 @@
                                                         id="validationCustom05">
                                                         <option data-display="Select">Please select</option>
 
-                                                        @foreach ($dataKandidats as $item)
-                                                            <option value="{{ $item->id }}">
+                                                        @foreach ($users as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ $item->id == $idKandidats->id ? 'selected' : '' }}>
                                                                 {{ $item->name_user }}
                                                             </option>
                                                         @endforeach

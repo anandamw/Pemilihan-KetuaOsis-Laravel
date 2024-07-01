@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Kandidat;
 use App\Models\Pemilihan;
+use App\Models\VisiMisi;
 use Illuminate\Database\Seeder;
 use Database\Seeders\KandidatSeeder;
 use Illuminate\Foundation\Auth\User;
@@ -29,9 +30,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            KelasSeeder::class,
             DummyUsersSeeder::class,
             KandidatSeeder::class,
-            PemilihanSeeder::class,
+            SiswaSeeder::class,
+            // SuaraSeeder::class,
+            VisiMisiSeeder::class,
+            // KandidatSeeder::class,
+            // PemilihanSeeder::class
         ]);
     }
 }

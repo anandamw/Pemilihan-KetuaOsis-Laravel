@@ -2,12 +2,7 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-            <div class="row page-titles">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Validation</a></li>
-                </ol>
-            </div>
+
             <!-- row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -17,31 +12,30 @@
                         </div>
                         <div class="card-body">
                             <div class="form-validation">
-                                <form class="needs-validation" action="/pemilihan/create" method="POST" novalidate>
+                                <form class="needs-validation" action="/osis/{{ $allUsers->id }}/update" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-xl-6">
+
                                             <div class="mb-3 row">
                                                 <label class="col-lg-4 col-form-label" for="validationCustom01">Nis
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" class="form-control" name="nis"
-                                                        value="{{ Auth::user()->nis }}" id="validationCustom01"
-                                                        placeholder="Enter a Nis.." readonly>
+                                                        value="{{ $allUsers->nis }}" id="validationCustom01" required>
                                                     <div class="invalid-feedback">
                                                         Please enter a Nis.
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">name
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Nama
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" name="name"
-                                                        value="{{ Auth::user()->name_user }}" class="form-control"
-                                                        id="validationCustom01" placeholder="Enter a name.." readonly>
+                                                    <input type="text" name="name_user" class="form-control"
+                                                        id="validationCustom01" value="{{ $allUsers->name_user }}" required>
                                                     <div class="invalid-feedback">
                                                         Please enter a name.
                                                     </div>
@@ -54,8 +48,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" class="form-control" id="validationCustom01"
-                                                        name="jurusan" value="{{ Auth::user()->jurusan }}" readonly
-                                                        placeholder="Enter a Jurusan.." required>
+                                                        name="jurusan" value="{{ $allUsers->jurusan }}" required>
                                                     <div class="invalid-feedback">
                                                         Please enter a Jurusan.
                                                     </div>
@@ -63,41 +56,73 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
+
                                             <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom05">Pilih
-                                                    Kandidat :
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Email
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select name="kandidats_id" class="default-select wide form-control"
-                                                        id="validationCustom05">
-                                                        <option data-display="Select">Please select</option>
-
-                                                        @foreach ($dataKandidats as $item)
-                                                            <option value="{{ $item->id }}">
-                                                                {{ $item->name_user }}
-                                                            </option>
-                                                        @endforeach
-
+                                                    <input type="email" class="form-control" name="email"
+                                                        id="validationCustom01" value="{{ $allUsers->email }}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a Email.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">
+                                                    Gambar
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <img src="{{ asset('pendaftar/' . $allUsers->gambar) }}" width="60"
+                                                        style="border-radius: 5px; margin-bottom: 10px;" alt="">
+                                                    <input type="file" class="form-control" name="gambar"
+                                                        id="validationCustom01">
+                                                    <div class="invalid-feedback">
+                                                        Hanya mendukung format gambar: jpg, png, svg
+                                                    </div>
+                                                </div>
+                                            </div> --}}
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom01">Password
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" name="password"
+                                                        id="validationCustom01" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter a Password.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row">
+                                                <label class="col-lg-4 col-form-label" for="validationCustom05">Pilih Role:
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select name="role"
+                                                        class="form-control @error('role') is-invalid @enderror"
+                                                        id="validationCustom05" required>
+                                                        <option value="">Please select</option>
+                                                        <option value="osis"
+                                                            {{ $allUsers->role === 'osis' ? 'selected' : '' }}>Osis</option>
+                                                        <option value="siswa"
+                                                            {{ $allUsers->role === 'siswa' ? 'selected' : '' }}>Siswa
+                                                        </option>
+                                                        <option value="kandidat"
+                                                            {{ $allUsers->role === 'kandidat' ? 'selected' : '' }}>Kandidat
+                                                        </option>
                                                     </select>
-                                                    <div class="invalid-feedback">
-                                                        Please select a one.
-                                                    </div>
+                                                    @error('role')
+                                                        <div class="invalid-feedback">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
-                                            <div class="mb-3 row">
-                                                <label class="col-lg-4 col-form-label" for="validationCustom01">No Whatsapp
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="form-control" name="no_whatsapp"
-                                                        id="validationCustom01" placeholder="Enter a No Whatsapp.."
-                                                        required>
-                                                    <div class="invalid-feedback">
-                                                        Please enter a No Whatsapp.
-                                                    </div>
-                                                </div>
-                                            </div>
+
+
+
+
 
                                             <div class="mb-3 row">
                                                 <div class="col-lg-8 ms-auto">

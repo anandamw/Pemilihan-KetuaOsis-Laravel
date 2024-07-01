@@ -17,29 +17,18 @@ class KandidatSeeder extends Seeder
     {
         $createData = [
             [
-                'nama_kandidat' => 'John Doe',
-                'kelas' => '10A',
-                'visi' => 'To create a better school environment',
-                'misi' => '1. Improve school facilities. 2. Increase student engagement.',
-                'gambar' => 'john_doe.jpg',
-                'nis' => '123456',
+                'nama_kandidat' =>  "Kandidat 1",
+                'calon_kandidat' =>  "Nanda & Elisa",
+
+                'foto_kandidat' => 'kandidat.jpg',
             ],
             [
-                'nama_kandidat' => 'Jane Smith',
-                'kelas' => '11B',
-                'visi' => 'To foster a culture of inclusivity',
-                'misi' => '1. Promote diversity. 2. Support student initiatives.',
-                'gambar' => 'jane_smith.jpg',
-                'nis' => '789012',
+                'nama_kandidat' =>  "Kandidat 2",
+                'calon_kandidat' =>  "Yanto & Yanti",
+
+                'foto_kandidat' => 'kandidat.jpg',
             ],
-            [
-                'nama_kandidat' => 'Alice Johnson',
-                'kelas' => '12C',
-                'visi' => 'To enhance academic excellence',
-                'misi' => '1. Provide more academic resources. 2. Organize study groups.',
-                'gambar' => 'alice_johnson.jpg',
-                'nis' => '345678',
-            ],
+
         ];
         foreach ($createData as $data) {
             Kandidat::create($data);
